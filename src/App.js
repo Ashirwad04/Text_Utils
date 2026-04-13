@@ -1,5 +1,6 @@
 import Navbar from './componenets/Navbar';
 import './App.css';
+import Textform from './componenets/Textform';
 
 function App() {
 
@@ -8,7 +9,12 @@ function App() {
    <>
     
 <Navbar title="Text Utils"aboutText="About"/>
-<Navbar/>
+
+  <div className="container my-3">
+
+    <Textform heading="Enter the test to Analyze Below"/>
+
+  </div>
    </>
   );
 }
