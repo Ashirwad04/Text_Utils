@@ -54,8 +54,8 @@ export default function Textform(props) {
           onChange={handleonchnage}
           id="myBox"
           rows="8"
-          style={{backgroundColor: props.mode==='dark'?'gray':'white',color: props.mode=='dark'?'white':'black'}}
-        ></textarea>
+          style={{backgroundColor: props.mode==='dark'?'grey':'white',color: props.mode=='dark'?'white':'black'}} 
+          ></textarea>
       </div>
     <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to UpperCase</button>
     <button className="btn btn-primary mx-1" onClick={handleLoClick}>Convert to LowerCase</button>
@@ -67,7 +67,7 @@ export default function Textform(props) {
       <p> {0.008* text.split(" ").length } Minus read time </p>
 
       <h2>Preview</h2>
-      <p>{text.length>0?text:"Enter Somting to preview it hear"}</p>
+      <p>{text.length>0?text:"Enter Somting in the text box to preview it hear"}</p>
 
     </div>
     </>
