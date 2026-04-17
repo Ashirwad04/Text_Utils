@@ -10,6 +10,10 @@ import PropTypes from 'prop-types'
 
 export default function Textform(props) {
 
+
+
+
+
   const handleUpClick=() =>{
     console.log("upper case button was clicked" + text);
     let newText=text.toUpperCase();
@@ -59,14 +63,14 @@ export default function Textform(props) {
           style={{backgroundColor: props.mode==='dark'?'grey':'white',color: props.mode=='dark'?'white':'black'}} 
           ></textarea>
       </div>
-    <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to UpperCase</button>
-    <button className="btn btn-primary mx-1" onClick={handleLoClick}>Convert to LowerCase</button>
-    <button className="btn btn-primary mx-1" onClick={handleToClear}>Clear Text</button>
+    <button className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>Convert to UpperCase</button>
+    <button className="btn btn-primary mx-1 my-1" onClick={handleLoClick}>Convert to LowerCase</button>
+    <button className="btn btn-primary mx-1 my-1" onClick={handleToClear}>Clear Text</button>
     </div>
     <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
       <h2>Your text summary</h2>
-      <p> {text.split(" ").length} and {text.length} Characters</p>
-      <p> {0.008* text.split(" ").length } Minus read time </p>
+      <p> {text.split(/\s+/).filter(((element)=>{return element.length!==0})).length} and {text.length} Characters</p>
+      <p> {0.008* text.split(" ").filter(((element)=>{return element.length!==0})).length } Minus read time </p>
 
       <h2>Preview</h2>
       <p>{text.length>0?text:"Enter Somting in the text box to preview it hear"}</p>
