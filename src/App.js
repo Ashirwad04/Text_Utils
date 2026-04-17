@@ -5,6 +5,12 @@ import About from './componenets/About';
 import React, { useState } from 'react'
 import Aleart from './Aleart';
 
+import {
+  BrowserRouter as Router,
+  Routes,   // ← Switch → Routes
+  Route,
+  Link
+} from "react-router-dom";
 function App() {
 
 const [mode, setMode] = useState('light');
@@ -37,20 +43,22 @@ const toggleMode = () => {
   }
 }
 
-  return (
-   <>
-    
-<Navbar title="Text Utils" mode={mode} toggleMode={toggleMode}  />
-
-    <Aleart aleart={alert}/>
-
-
-  <div className="container my-3">
-    <Textform showAlert={showAlert} heading="Enter the test to Analyze Below" mode={mode}/>
-    {/* <About/> */}
-  </div>
-   </>
-  );
+ return (
+  <>
+    <Router>
+      <Navbar title="Text Utils" aboutText="About" mode={mode} toggleMode={toggleMode} />
+      <Aleart aleart={alert} />
+      <div className="container my-3">
+        <Routes>
+          <Route path="/about" element={<About mode={mode} />} />
+          <Route path="/" element={
+            <Textform showAlert={showAlert} heading="Enter the test to Analyze Below" mode={mode} />
+          } />
+        </Routes>
+      </div>
+    </Router>
+  </>
+);
 }
 
 export default App;
